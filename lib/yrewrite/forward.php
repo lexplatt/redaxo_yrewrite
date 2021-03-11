@@ -90,7 +90,7 @@ class rex_yrewrite_forward
     public static function generatePathFile()
     {
         $gc = rex_sql::factory();
-        $content = $gc->getArray('select * from '.rex::getTable('yrewrite_forward'));
+        $content = $gc->getArray('select * from '.rex::getTable('yrewrite_forward').' where status = 1');
 
         foreach ($content as &$row) {
             $url = explode('?', $row['url'], 2);
